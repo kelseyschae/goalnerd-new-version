@@ -1,0 +1,529 @@
+/* -------------------------------- */
+/* IMPORT FONTS                     */
+/* -------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================================
+   GoalNerd - Main Stylesheet
+   ============================================================================ */
+
+/* -------------------------------- */
+/* ROOT VARIABLES                   */
+/* -------------------------------- */
+:root {
+  --primary-color: #0f3d0f;
+  --primary-color-light: #1f5c1f;
+  --accent-color: #32cd32;
+  --accent-color-dark: #28a428;
+
+  --light-bg: #f6f9f5;
+  --mid-gray: #4a4a4a;
+  --dark-gray: #222;
+  --white: #ffffff;
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius: 14px;
+  --transition: 0.3s ease;
+  --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 10px 26px rgba(0, 0, 0, 0.12);
+  --glow-green: 0 0 12px rgba(50, 205, 50, 0.35);
+}
+
+/* -------------------------------- */
+/* GLOBAL RESET                     */
+/* -------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--light-bg);
+  color: var(--mid-gray);
+  line-height: 1.65;
+  overflow-x: hidden;
+
+  /* Light green hex mesh */
+  background-image:
+    linear-gradient(30deg, rgba(50, 120, 50, 0.06) 12%, transparent 12.5%),
+    linear-gradient(150deg, rgba(50, 120, 50, 0.06) 12%, transparent 12.5%),
+    linear-gradient(90deg, rgba(50, 120, 50, 0.06) 2%, transparent 2.5%);
+  background-size: 50px 50px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* -------------------------------- */
+/* HEADER (FIXED CENTERING)         */
+/* -------------------------------- */
+.main-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* CAMBIO: Usamos flex-start para controlar el espacio manualmente */
+  justify-content: flex-start; 
+  padding: 1.2rem 3rem;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-soft);
+  gap: 2rem; /* Espacio entre el logo y la navegación */
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logo {
+  width: 180px;
+  display: block; /* Asegura que no tenga espacios extra */
+}
+
+/* NAVIGATION CONTAINER */
+.main-nav {
+  display: flex;
+  align-items: center;
+  /* CAMBIO: Ocupa todo el espacio restante */
+  flex: 1; 
+  justify-content: space-between; /* Separa los links de la búsqueda */
+}
+
+/* NUEVO GRUPO DE LINKS (Para centrarlos) */
+.nav-links-group {
+    display: flex;
+    gap: 3.5rem;
+    /* CAMBIO CLAVE: Esto empuja el grupo al centro exacto del espacio disponible */
+    margin: 0 auto; 
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.15rem;
+  transition: 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: var(--accent-color);
+}
+
+/* SEARCH BOX */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.search-box input {
+  padding: 0.65rem 1rem;
+  width: 230px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-family: var(--font-body);
+  transition: var(--transition);
+}
+
+.search-box input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.2);
+}
+
+.search-box button {
+  background-color: var(--accent-color);
+  border: none;
+  padding: 0.65rem 1.4rem;
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.search-box button:hover {
+  background-color: var(--accent-color-dark);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------- */
+/* HERO SECTION                     */
+/* -------------------------------- */
+.hero {
+  position: relative;
+  padding: 7rem 2rem 10rem;
+  text-align: center;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../pictures/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.25)
+  );
+  z-index: -1;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 700;
+}
+
+.hero p {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.95;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-family: var(--font-heading);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.hero-btn:hover {
+  background: var(--accent-color-dark);
+  transform: translateY(-3px);
+}
+
+/* -------------------------------- */
+/* FOOTER                           */
+/* -------------------------------- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--primary-color);
+  color: white;
+  margin-top: 5rem;
+}
+
+/* ============================================================================
+   ACCESSIBILITY - SKIP LINK
+   ============================================================================ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 10px;
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   HAMBURGER MENU (MOBILE NAVIGATION)
+   ============================================================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVE STYLES (max-width: 768px)
+   ============================================================================ */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .main-header {
+    padding: 1rem 1.5rem;
+    justify-content: space-between; /* Volvemos a space-between en móvil */
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1rem;
+    background-color: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    
+    /* Resetear estilos de desktop */
+    flex: unset; 
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  /* Ajustes para el nuevo grupo de links en móvil */
+  .nav-links-group {
+      flex-direction: column;
+      gap: 0;
+      margin: 0; /* Quitar centrado de desktop */
+      width: 100%;
+  }
+
+  .main-nav a {
+    padding: 0.75rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: block;
+    width: 100%;
+  }
+
+  .search-box {
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 4rem 1.5rem 6rem;
+  }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
+
+.hamburger:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+.nav-link:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   Card Styles 
+   ============================================================================ */
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    cursor: pointer;
+    text-align: left; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-image {
+    width: 100%;
+    height: 160px;
+    background-color: var(--light-bg);
+    background-repeat: no-repeat !important;
+    background-size: cover; 
+    
+    /* Alinea la imagen arriba para que se vea la cara del jugador */
+    background-position: top center !important; 
+}
+
+.card-content { padding: 1rem; }
+
+.card-label {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+    display: block;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    margin: 0.5rem 0;
+    line-height: 1.3;
+}
+
+.card-content p {
+    color: var(--mid-gray);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ============================================================================
+   AJUSTE ESPECÍFICO PARA SPOTLIGHT (SOLO EN HOME)
+   ============================================================================ */
+#spotlight-player {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0 3rem 0;
+}
+
+#spotlight-player .card {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* =========================================
+   GAMES GRID (TODAY'S GAMES)
+   ========================================= */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 2rem 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.game-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.game-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-color);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.league-badge {
+    background-color: var(--primary-color-light);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.game-date {
+    color: var(--mid-gray);
+    font-weight: 500;
+}
+
+.teams-versus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team-home, .team-away {
+    flex: 1;
+    font-weight: 700;
+    color: var(--dark-gray);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+}
+
+.team-home { text-align: right; }
+.team-away { text-align: left; }
+
+.vs-badge {
+    background: #f0f0f0;
+    color: var(--dark-gray);
+    font-weight: bold;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoalNerd | Search Results</title>
+    <!-- Animate.css for rollOut animation on nav links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/players.css" />
+</head>
+
+<body class="fade-out">
+    
+    <!-- Skip Link for Accessibility (keyboard users can skip nav) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="main-header">
+        <div class="nav-left">
+            <a href="index.html">
+                <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
+            </a>
+        </div>
+
+        <!-- Hamburger Button (mobile only) -->
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav" id="nav-links" role="navigation" aria-label="Main navigation">
+            <a href="players.html" class="nav-link">Players</a>
+            <a href="leagues.html" class="nav-link">Leagues</a>
+            <a href="games.html" class="nav-link">Games</a>
+            <a href="mystats.html" class="nav-link">My Stats</a>
+
+            <form class="search-box" role="search" id="search-form">
+                <input type="text" placeholder="Search players, clubs..." aria-label="Search players and clubs" id="search-input">
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="players-page">
+            <section class="intro">
+                <h1>Search Results</h1>
+                <p>
+                    Showing results for: "<strong id="query-display">...</strong>"
+                </p>
+            </section>
+
+            <section class="featured player-list" id="results-grid">
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GoalNerd. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Use ES6 module system - all scripts import from modules/ folder -->
+    <script type="module" src="js/search-results.module.js"></script>
+</body>
+
+</html>

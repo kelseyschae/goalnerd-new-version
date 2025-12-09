@@ -1,0 +1,95 @@
+/* ============================
+    DETAILS PAGE LAYOUT
+    ============================ */
+
+/* Ensure the body or html occupies the full height */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container */
+.details {
+    display: flex;
+    justify-content: center;
+    /* Horizontal center */
+    align-items: center;
+    /* Vertical center */
+    min-height: 70vh;
+    /* Height of the area below the hero section */
+    padding: 2rem;
+}
+
+/* Main centered card */
+.details-card {
+    width: 100%;
+    max-width: 520px;
+    /* Ideal size for a stats card */
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease;
+}
+
+/* Team or player Image/Logo */
+#details-image-container {
+    width: 100%;
+    height: 240px;
+    background-color: #f2f2f2;
+}
+
+/* Inner content */
+.details-card .card-content {
+    padding: 1.5rem;
+}
+
+/* Titles */
+#details-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#details-name {
+    font-size: 1.6rem;
+    margin-top: 0.25rem;
+}
+
+/* Labels */
+#details-type {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Meta info */
+.details-meta {
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Stats list */
+.details-stats ul {
+    padding-left: 1rem;
+}
+
+.details-stats li {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

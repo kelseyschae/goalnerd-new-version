@@ -1,0 +1,62 @@
+/* ============================================================================
+   PLAYERS PAGE SPECIFIC STYLES
+   ============================================================================
+   NOTA: Los estilos de las tarjetas (.card, .card-image, etc.) se han movido 
+   a styles.css para que se puedan compartir con el Spotlight del inicio.
+   ============================================================================ */
+
+.intro {
+    text-align: center;
+    /* Usamos transparente para que se vea el fondo verde del body */
+    background-color: transparent; 
+    padding: 2rem;
+    max-width: 800px; /* Limitamos el ancho para que el texto se lea mejor */
+    margin: 0 auto;
+}
+
+.intro h1 {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: var(--mid-gray);
+}
+
+/* ============================================================================
+   PLAYER GRID LAYOUT
+   ============================================================================
+   Define la estructura de la cuadrícula donde van las tarjetas.
+   ============================================================================ */
+.player-list {
+    display: grid;
+    /* Responsive: columnas automáticas de mínimo 250px */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVE
+   ============================================================================ */
+@media (max-width: 768px) {
+    .player-list {
+        /* En móviles, las tarjetas pueden ser un poco más pequeñas */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .intro {
+        padding: 1.5rem 1rem;
+    }
+    
+    .intro h1 {
+        font-size: 2rem;
+    }
+}
