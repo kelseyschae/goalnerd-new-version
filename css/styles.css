@@ -611,3 +611,37 @@ body.dark {
   background-color: #1a1a1a;
   color: white;
 }
+
+/* -------------------------------- */
+/* DARK MODE OVERRIDES              */
+/* -------------------------------- */
+body.dark-mode {
+  --light-bg: #0f0f0f;
+  --mid-gray: #e5e5e5;
+  --dark-gray: #ffffff;
+  --primary-color: #32cd32;
+}
+
+body.dark-mode {
+  background-color: var(--light-bg);
+  color: var(--mid-gray);
+}
+
+body.dark-mode header {
+  background: #111;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .hero::after {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .search-box input {
+  background: #222;
+  color: #eee;
+  border-color: #444;
+}
+
+body.dark-mode .search-box button {
+  background: #28a428;
+}
