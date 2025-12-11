@@ -648,5 +648,44 @@ body.dark-mode .vs-badge {
   color: white;
 }
 
+@media (max-width: 768px) {
+  .main-nav {
+    background: #111;        /* so menu is visible */
+    padding: 1rem;
+  }
+}
 
+@media (max-width: 768px) {
 
+  .nav-links-group {
+    display: flex;
+    flex-direction: column !important;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .nav-links-group a {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.8rem;
+  }
+
+  .theme-toggle-wrapper {
+    margin: 1rem auto;
+  }
+
+  .search-box {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-wrapper {
+    margin-left: 0;
+    justify-content: center;
+    width: 100%;
+  }
+}
