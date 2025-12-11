@@ -549,8 +549,8 @@ footer {
 .theme-switch {
   position: relative;
   display: inline-block;
-  width: 48px;
-  height: 24px;
+  width: 56px;
+  height: 28px;
 }
 
 /* Hide default checkbox */
