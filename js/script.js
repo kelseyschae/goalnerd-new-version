@@ -153,7 +153,7 @@ function initNavigationAnimation() {
                 window.location.href = targetUrl;
             }, { once: true });
         });
-    });
+    }); 
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -183,5 +183,25 @@ themeToggle.addEventListener("change", () => {
   } else {
     document.body.classList.remove("dark");
     localStorage.setItem("theme", "light");
+  }
+});
+
+// DARK MODE TOGGLE
+const toggle = document.getElementById("darkModeToggle");
+
+// Load saved mode
+if (localStorage.getItem("dark-mode") === "enabled") {
+  document.body.classList.add("dark-mode");
+  toggle.checked = true;
+}
+
+// Toggle listener
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("dark-mode", "enabled");
+  } else {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("dark-mode", "disabled");
   }
 });
