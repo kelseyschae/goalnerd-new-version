@@ -528,7 +528,10 @@ footer {
     white-space: nowrap;
 }
 
-/* THEME TOGGLE SWITCH */
+/* -------------------------------- */
+/* THEME TOGGLE SWITCH              */
+/* -------------------------------- */
+
 .theme-toggle-wrapper {
   display: flex;
   align-items: center;
@@ -556,7 +559,7 @@ footer {
   height: 0;
 }
 
-/* Slider background */
+/* Slider track */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -566,7 +569,7 @@ footer {
   transition: 0.3s;
 }
 
-/* Slider circle */
+/* Slider knob */
 .slider::before {
   position: absolute;
   content: "";
@@ -579,7 +582,7 @@ footer {
   transition: 0.3s;
 }
 
-/* Checked (dark mode ON) */
+/* When checked */
 input:checked + .slider {
   background-color: var(--accent-color);
 }
@@ -588,54 +591,32 @@ input:checked + .slider::before {
   transform: translateX(24px);
 }
 
-body.dark {
-  background-color: #0b0b0b;
-  color: #e8e8e8;
-}
-
-.dark header {
-  background-color: #111;
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-.dark input,
-.dark button {
-  background-color: #222 !important;
-  color: white !important;
-  border-color: #444 !important;
-}
-
-.dark .card,
-.dark .team-card,
-.dark .spotlight-card {
-  background-color: #1a1a1a;
-  color: white;
-}
-
 /* -------------------------------- */
-/* DARK MODE OVERRIDES              */
+/* DARK MODE OVERRIDES (PRIMARY SYSTEM) */
 /* -------------------------------- */
+
 body.dark-mode {
   --light-bg: #0f0f0f;
   --mid-gray: #e5e5e5;
   --dark-gray: #ffffff;
   --primary-color: #32cd32;
-}
 
-body.dark-mode {
   background-color: var(--light-bg);
   color: var(--mid-gray);
 }
 
+/* Header */
 body.dark-mode header {
   background: #111;
   border-bottom: 1px solid #333;
 }
 
+/* Hero overlay darker */
 body.dark-mode .hero::after {
   background: rgba(0, 0, 0, 0.6);
 }
 
+/* Search box */
 body.dark-mode .search-box input {
   background: #222;
   color: #eee;
@@ -645,3 +626,25 @@ body.dark-mode .search-box input {
 body.dark-mode .search-box button {
   background: #28a428;
 }
+
+/* Cards */
+body.dark-mode .card,
+body.dark-mode .team-card,
+body.dark-mode .spotlight-card {
+  background-color: #1a1a1a;
+  color: white;
+  border-color: #333;
+}
+
+/* Game cards */
+body.dark-mode .game-card {
+  background-color: #1a1a1a;
+  border-color: #333;
+}
+
+body.dark-mode .vs-badge {
+  background-color: #333;
+  color: white;
+}
+
+
