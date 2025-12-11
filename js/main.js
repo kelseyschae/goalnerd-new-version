@@ -203,26 +203,28 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchUpcomingGames();
 });
 
-// DARK MODE TOGGLE
+
+// -------------------------------------
+// DARK MODE TOGGLE 
+// -------------------------------------
 const themeToggle = document.getElementById("theme-toggle");
 
-themeToggle.addEventListener("change", () => {
-  document.body.classList.toggle("dark-mode");
-
-  // Save preference
-  if (themeToggle.checked) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
-});
-
-// Apply stored theme on load
-window.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme === "dark") {
+function applyTheme(theme) {
+  if (theme === "dark") {
     document.body.classList.add("dark-mode");
     themeToggle.checked = true;
+  } else {
+    document.body.classList.remove("dark-mode");
+    themeToggle.checked = false;
   }
+}
+
+// Load saved preference
+applyTheme(localStorage.getItem("theme") || "light");
+
+// Toggle listener
+themeToggle.addEventListener("change", () => {
+  const theme = themeToggle.checked ? "dark" : "light";
+  localStorage.setItem("theme", theme);
+  applyTheme(theme);
 });
