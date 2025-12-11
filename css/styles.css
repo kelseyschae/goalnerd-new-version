@@ -587,3 +587,27 @@ input:checked + .slider {
 input:checked + .slider::before {
   transform: translateX(24px);
 }
+
+body.dark {
+  background-color: #0b0b0b;
+  color: #e8e8e8;
+}
+
+.dark header {
+  background-color: #111;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark input,
+.dark button {
+  background-color: #222 !important;
+  color: white !important;
+  border-color: #444 !important;
+}
+
+.dark .card,
+.dark .team-card,
+.dark .spotlight-card {
+  background-color: #1a1a1a;
+  color: white;
+}
