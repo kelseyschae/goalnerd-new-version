@@ -648,4 +648,43 @@ body.dark-mode .vs-badge {
   color: white;
 }
 
+/* Soccer Ball Toggle Slider */
+.slider::before {
+  position: absolute;
+  content: "⚽"; /* soccer ball */
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 20px;
+  width: 20px;
+
+  left: 2px;
+  bottom: 2px;
+
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+/* When ON (Dark Mode) – move ball to the right */
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* Slider background OFF vs ON*/
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
 
